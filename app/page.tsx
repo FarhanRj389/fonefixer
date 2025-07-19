@@ -503,19 +503,19 @@ export default function HomePage() {
         <div className="container mx-auto max-w-6xl">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold text-blue-400 mb-2">500+</div>
+              <div className="text-4xl font-bold bg-blue-600 mb-2">500+</div>
               <div className="text-gray-300">Devices Repaired</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-purple-400 mb-2">98%</div>
+              <div className="text-4xl font-bold bg-blue-600 mb-2">98%</div>
               <div className="text-gray-300">Customer Satisfaction</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-green-400 mb-2">30min</div>
+              <div className="text-4xl font-bold bg-blue-600 mb-2">30min</div>
               <div className="text-gray-300">Average Repair Time</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-yellow-400 mb-2">24/7</div>
+              <div className="text-4xl font-bold bg-blue-600 mb-2">24/7</div>
               <div className="text-gray-300">Support Available</div>
             </div>
           </div>

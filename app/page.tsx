@@ -567,10 +567,10 @@ export default function HomePage() {
             <div>
               <h4 className="text-lg font-semibold mb-4">Contact</h4>
               <ul className="space-y-2 text-gray-300">
-                <li>📞 027 415 2897</li>
-                <li>📧 info@fonefixer.nz</li>
-                <li>📍 Auckland, New Zealand</li>
-                <li>🕒 7 Days a Week</li>
+                <li>027 415 2897</li>
+                <li>info@fonefixer.nz</li>
+                <li>Auckland, New Zealand</li>
+                <li>7 Days a Week</li>
               </ul>
             </div>
           </div>

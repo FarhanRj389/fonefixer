@@ -576,7 +576,7 @@ export default function HomePage() {
           </div>
 
           <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
-            <p>&copy; 2024 Fone Fixer. All rights reserved. | Professional Onsite Phone Repair Services in Auckland</p>
+            <p>&copy; 2024 Fone Fixer. All rights reserved. | Demo Digitroncx</p>
           </div>
         </div>
       </footer>

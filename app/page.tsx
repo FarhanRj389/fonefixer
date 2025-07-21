@@ -24,7 +24,6 @@ import {
   CalendarIcon,
   ArrowRight,
   Zap,
-  
 } from "lucide-react"
 import { format } from "date-fns"
 import { cn } from "@/lib/utils"
@@ -36,6 +35,13 @@ import Link from "next/link"
 export default function HomePage() {
   const [date, setDate] = useState<Date>()
   const [isVisible, setIsVisible] = useState(false)
+  // Add formData state for serviceType
+  const [formData, setFormData] = useState({ serviceType: "" })
+
+  // Add handleChange function for radio buttons
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
 
   useEffect(() => {
     setIsVisible(true)
@@ -477,6 +483,61 @@ export default function HomePage() {
                       <Calendar mode="single" selected={date} onSelect={setDate} initialFocus />
                     </PopoverContent>
                   </Popover>
+                </div>
+
+                 {/* Service Options */}
+                <div className="bg-gray-50 rounded-xl ">
+                  {/* <h3 className="text-xl font-bold text-gray-900 mb-6">Service Preferences</h3> */}
+                  
+                  <div className="mb-6">
+                    <label className="block text-sm font-medium text-gray-700 mb-3">
+                      Service Type *
+                    </label>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <label className="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:bg-blue-50 transition-colors">
+                        <input
+                          type="radio"
+                          name="serviceType"
+                          value="in-store"
+                          checked={formData.serviceType === 'in-store'}
+                          onChange={handleChange}
+                          className="mr-3"
+                        />
+                        <div>
+                          <div className="font-medium">Visit Store</div>
+                          <div className="text-sm text-gray-600">Drop off at our location</div>
+                        </div>
+                      </label>
+                      <label className="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:bg-blue-50 transition-colors">
+                        <input
+                          type="radio"
+                          name="serviceType"
+                          value="courier"
+                          checked={formData.serviceType === 'courier'}
+                          onChange={handleChange}
+                          className="mr-3"
+                        />
+                        <div>
+                          <div className="font-medium">Courier Service</div>
+                          <div className="text-sm text-gray-600">Send your device to us</div>
+                        </div>
+                      </label>
+                      <label className="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:bg-blue-50 transition-colors">
+                        <input
+                          type="radio"
+                          name="serviceType"
+                          value="home-service"
+                          checked={formData.serviceType === 'home-service'}
+                          onChange={handleChange}
+                          className="mr-3"
+                        />
+                        <div>
+                          <div className="font-medium">Home Service</div>
+                          <div className="text-sm text-gray-600">We come to you</div>
+                        </div>
+                      </label>
+                    </div>
+                  </div>
                 </div>
 
                 <div>

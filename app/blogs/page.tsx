@@ -324,7 +324,7 @@ export default function BlogsPage() {
           <div className="grid md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center space-x-2 mb-4">
-                <img src="/images/fone-fixer-logo.png" alt="Fone Fixer Logo" className="w-8 h-8" />
+                <img src="/images/logo_bg.png" alt="Fone Fixer Logo" className="w-8 h-8" />
                 <h3 className="text-2xl font-bold">Fone Fixer</h3>
               </div>
               <p className="text-gray-300 mb-4">
@@ -355,15 +355,15 @@ export default function BlogsPage() {
             <div>
               <h4 className="text-lg font-semibold mb-4">Contact</h4>
               <ul className="space-y-2 text-gray-300">
-                <li>📞 027 415 2897</li>
-                <li>📧 info@fonefixer.nz</li>
-                <li>📍 Auckland, New Zealand</li>
+              <li>027 415 2897</li>
+                <li>fonefixernz@gmail.com</li>
+                <li>Auckland, New Zealand</li>
               </ul>
             </div>
           </div>
 
           <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
-            <p>&copy; 2024 Fone Fixer. All rights reserved.</p>
+          <p>Fone Fixer All Rights Reserved © 2024 | Powered by DigitronCX®</p>
           </div>
         </div>
       </footer>

@@ -164,6 +164,7 @@ export default function ServicesPage() {
       <WhatsAppFloat />
 
       {/* Hero Section */}
+      <div id="emergency-repairs" style={{ position: 'relative', top: '-80px' }}></div>
       <section className="relative pt-32 pb-20 px-4 md:px-6">
         <div className="container mx-auto max-w-6xl">
           <div
@@ -201,7 +202,15 @@ export default function ServicesPage() {
 
           <div className="space-y-12">
             {mainServices.map((service, index) => (
-              <Card key={index} className="overflow-hidden hover:shadow-xl transition-shadow">
+              <Card key={index} className="overflow-hidden hover:shadow-xl transition-shadow" id={
+                service.title === "Mobile Phone Repairs"
+                  ? "mobile-phone-repairs"
+                  : service.title === "Mac Repairs"
+                  ? "mac-repairs"
+                  : service.title === "Windows Repairs"
+                  ? "windows-repairs"
+                  : undefined
+              }>
                 <CardContent className="p-0">
                   <div className="grid lg:grid-cols-2 gap-0">
                     <div className="p-8 lg:p-12">
@@ -292,6 +301,9 @@ export default function ServicesPage() {
               </Card>
             ))}
           </div>
+          {/* Add anchor targets for screen and battery replacements */}
+          <div id="screen-replacements" style={{ position: 'relative', top: '-80px' }}></div>
+          <div id="battery-replacements" style={{ position: 'relative', top: '-80px' }}></div>
         </div>
       </section>
 
@@ -328,6 +340,8 @@ export default function ServicesPage() {
       </section>
 
       {/* Process Section */}
+      <div id="free-diagnosis" style={{ position: 'relative', top: '-80px' }}></div>
+      <div id="warranty-claims" style={{ position: 'relative', top: '-80px' }}></div>
       <section className="py-20 px-4 md:px-6">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
@@ -354,6 +368,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Features Section */}
+      <div id="technical-support" style={{ position: 'relative', top: '-80px' }}></div>
       <section className="py-20 px-4 md:px-6 bg-blue-600 text-white">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
@@ -417,7 +432,7 @@ export default function ServicesPage() {
           <div className="grid md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center space-x-2 mb-4">
-                <img src="/images/fone-fixer-logo.png" alt="Fone Fixer Logo" className="w-8 h-8" />
+                <img src="/images/logo_bg.png" alt="Fone Fixer Logo" className="w-8 h-8" />
                 <h3 className="text-2xl font-bold">Fone Fixer</h3>
               </div>
               <p className="text-gray-300 mb-4">
@@ -428,10 +443,11 @@ export default function ServicesPage() {
             <div>
               <h4 className="text-lg font-semibold mb-4">Services</h4>
               <ul className="space-y-2 text-gray-300">
-                <li>Mobile Phone Repairs</li>
-                <li>Mac Repairs</li>
-                <li>Windows Repairs</li>
-                <li>Screen Replacements</li>
+              <li><a href="/services#mobile-phone-repairs">Mobile Phone Repairs</a></li>
+                <li><a href="/services#mac-repairs">Mac Repairs</a></li>
+                <li><a href="/services#windows-repairs">Windows Repairs</a></li>
+                <li><a href="/services#screen-replacements">Screen Replacements</a></li>
+                <li><a href="/services#battery-replacements">Battery Replacements</a></li>
               </ul>
             </div>
 
@@ -448,15 +464,15 @@ export default function ServicesPage() {
             <div>
               <h4 className="text-lg font-semibold mb-4">Contact</h4>
               <ul className="space-y-2 text-gray-300">
-                <li>📞 027 415 2897</li>
-                <li>📧 info@fonefixer.nz</li>
-                <li>📍 Auckland, New Zealand</li>
+              <li>027 415 2897</li>
+                <li>fonefixernz@gmail.com</li>
+                <li>Auckland, New Zealand</li>
               </ul>
             </div>
           </div>
 
           <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
-            <p>&copy; 2024 Fone Fixer. All rights reserved.</p>
+          <p>Fone Fixer All Rights Reserved © 2024 | Powered by DigitronCX®</p>
           </div>
         </div>
       </footer>

@@ -74,6 +74,7 @@ export default function AboutPage() {
       <WhatsAppFloat />
 
       {/* Hero Section */}
+      <div id="about-us" style={{ position: 'relative', top: '-80px' }}></div>
       <section className="relative pt-32 pb-20 px-4 md:px-6">
         <div className="container mx-auto max-w-6xl">
           <div
@@ -164,6 +165,7 @@ export default function AboutPage() {
       </section>
 
       {/* Team Section */}
+      <div id="our-team" style={{ position: 'relative', top: '-80px' }}></div>
       <section className="py-20 px-4 md:px-6">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
@@ -280,6 +282,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
+      <div id="careers" style={{ position: 'relative', top: '-80px' }}></div>
       <section className="py-20 px-4 md:px-6 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Experience the Difference?</h2>
@@ -303,12 +306,13 @@ export default function AboutPage() {
       </section>
 
       {/* Footer */}
+      <div id="contact" style={{ position: 'relative', top: '-80px' }}></div>
       <footer className="bg-gray-800 text-white py-12 px-4 md:px-6">
         <div className="container mx-auto max-w-6xl">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center space-x-2 mb-4">
-                <img src="/images/fone-fixer-logo.png" alt="Fone Fixer Logo" className="w-8 h-8" />
+                <img src="/images/logo_bg.png" alt="Fone Fixer Logo" className="w-8 h-8" />
                 <h3 className="text-2xl font-bold">Fone Fixer</h3>
               </div>
               <p className="text-gray-300 mb-4">
@@ -319,35 +323,36 @@ export default function AboutPage() {
             <div>
               <h4 className="text-lg font-semibold mb-4">Services</h4>
               <ul className="space-y-2 text-gray-300">
-                <li>Mobile Phone Repairs</li>
-                <li>Mac Repairs</li>
-                <li>Windows Repairs</li>
-                <li>Screen Replacements</li>
+              <li><a href="/services#mobile-phone-repairs">Mobile Phone Repairs</a></li>
+                <li><a href="/services#mac-repairs">Mac Repairs</a></li>
+                <li><a href="/services#windows-repairs">Windows Repairs</a></li>
+                <li><a href="/services#screen-replacements">Screen Replacements</a></li>
+                <li><a href="/services#battery-replacements">Battery Replacements</a></li>
               </ul>
             </div>
 
             <div>
               <h4 className="text-lg font-semibold mb-4">Company</h4>
               <ul className="space-y-2 text-gray-300">
-                <li>About Us</li>
-                <li>Our Team</li>
-                <li>Careers</li>
-                <li>Contact</li>
+                <li><a href="/about#about-us">About Us</a></li>
+                <li><a href="/about#our-team">Our Team</a></li>
+                <li><a href="/about#careers">Careers</a></li>
+                <li><a href="/about#contact">Contact</a></li>
               </ul>
             </div>
 
             <div>
               <h4 className="text-lg font-semibold mb-4">Contact</h4>
               <ul className="space-y-2 text-gray-300">
-                <li>📞 027 415 2897</li>
-                <li>📧 info@fonefixer.nz</li>
-                <li>📍 Auckland, New Zealand</li>
+                <li>027 415 2897</li>
+                <li>fonefixernz@gmail.com</li>
+                <li>Auckland, New Zealand</li>
               </ul>
             </div>
           </div>
 
           <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
-            <p>&copy; 2024 Fone Fixer. All rights reserved.</p>
+            <p>Fone Fixer All Rights Reserved © 2024 | Powered by DigitronCX®</p>
           </div>
         </div>
       </footer>

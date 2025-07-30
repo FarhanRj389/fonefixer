@@ -606,11 +606,11 @@ export default function HomePage() {
             <div>
               <h4 className="text-lg font-semibold mb-4">Services</h4>
               <ul className="space-y-2 text-gray-300">
-                <li><a href="/services/mobile-phone-repairs">Mobile Phone Repairs</a></li>
-                <li><a href="/services/mac-repairs">Mac Repairs</a></li>
-                <li><a href="/services/windows-repairs">Windows Repairs</a></li>
-                <li><a href="/services/screen-replacements">Screen Replacements</a></li>
-                <li><a href="/services/battery-replacements">Battery Replacements</a></li>
+                <li><a href="/services#mobile-phone-repairs">Mobile Phone Repairs</a></li>
+                <li><a href="/services#mac-repairs">Mac Repairs</a></li>
+                <li><a href="/services#windows-repairs">Windows Repairs</a></li>
+                <li><a href="/services#screen-replacements">Screen Replacements</a></li>
+                <li><a href="/services#battery-replacements">Battery Replacements</a></li>
               </ul>
             </div>
 

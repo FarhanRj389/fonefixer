@@ -35,12 +35,60 @@ import Link from "next/link"
 export default function HomePage() {
   const [date, setDate] = useState<Date>()
   const [isVisible, setIsVisible] = useState(false)
-  // Add formData state for serviceType
   const [formData, setFormData] = useState({ serviceType: "" })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitMessage, setSubmitMessage] = useState("")
 
   // Add handleChange function for radio buttons
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
+
+  // Handle form submission
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitMessage("")
+
+    const form = e.currentTarget
+    const formDataObj = new FormData(form)
+    
+    const emailData = {
+      firstName: formDataObj.get('firstName') as string,
+      lastName: formDataObj.get('lastName') as string,
+      phone: formDataObj.get('phone') as string,
+      email: formDataObj.get('email') as string,
+      deviceBrand: formDataObj.get('deviceBrand') as string,
+      deviceModel: formDataObj.get('deviceModel') as string,
+      serviceDate: date ? date.toISOString().split('T')[0] : '',
+      serviceType: formData.serviceType,
+      address: formDataObj.get('address') as string,
+    }
+
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(emailData),
+      })
+
+      const result = await response.json()
+
+      if (response.ok) {
+        setSubmitMessage(result.message)
+        form.reset()
+        setDate(undefined)
+        setFormData({ serviceType: "" })
+      } else {
+        setSubmitMessage(result.error || 'Failed to send booking request')
+      }
+    } catch (error) {
+      setSubmitMessage('Network error. Please try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   useEffect(() => {
@@ -243,7 +291,7 @@ export default function HomePage() {
                   <div className="flex justify-between items-center">
                     {/* <span className="text-2xl font-bold text-blue-600">{service.price}</span> */}
                     <Button variant="outline" size="sm">
-                     <Link href="/services" className="flex items-center">
+                     <Link href={service.title === "Mobile Phone Repairs" ? "/services#mobile-phone-repairs" : service.title === "Mac Repairs" ? "/services#mac-repairs" : "/services#windows-repairs"} className="flex items-center">
                       Learn More
                       </Link>
                     </Button>
@@ -422,33 +470,38 @@ export default function HomePage() {
           <Card className="max-w-2xl mx-auto">
             <CardContent className="p-8">
               <h3 className="text-2xl font-bold text-center mb-6">Book Your Repair Service</h3>
-              <form className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-4">
+                {submitMessage && (
+                  <div className={`p-4 rounded-lg ${submitMessage.includes('successfully') ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+                    {submitMessage}
+                  </div>
+                )}
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="firstName">First Name</Label>
-                    <Input id="firstName" placeholder="Enter your first name" />
+                    <Input id="firstName" name="firstName" placeholder="Enter your first name" required />
                   </div>
                   <div>
                     <Label htmlFor="lastName">Last Name</Label>
-                    <Input id="lastName" placeholder="Enter your last name" />
+                    <Input id="lastName" name="lastName" placeholder="Enter your last name" required />
                   </div>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="phone">Phone Number</Label>
-                    <Input id="phone" placeholder="027 XXX XXXX" />
+                    <Input id="phone" name="phone" placeholder="027 XXX XXXX" required />
                   </div>
                   <div>
                     <Label htmlFor="email">Email</Label>
-                    <Input id="email" type="email" placeholder="your@email.com" />
+                    <Input id="email" name="email" type="email" placeholder="your@email.com" required />
                   </div>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="deviceBrand">Device Brand</Label>
-                    <Select>
+                    <Select name="deviceBrand" required>
                       <SelectTrigger>
                         <SelectValue placeholder="Select brand" />
                       </SelectTrigger>
@@ -463,7 +516,7 @@ export default function HomePage() {
                   </div>
                   <div>
                     <Label htmlFor="deviceModel">Device Model</Label>
-                    <Input id="deviceModel" placeholder="e.g., iPhone 14 Pro" />
+                    <Input id="deviceModel" name="deviceModel" placeholder="e.g., iPhone 14 Pro" required />
                   </div>
                 </div>
 
@@ -544,13 +597,19 @@ export default function HomePage() {
                   <Label htmlFor="address">Service Address</Label>
                   <Textarea
                     id="address"
+                    name="address"
                     placeholder="Enter your full address where we should come for the repair"
                     rows={3}
+                    required
                   />
                 </div>
 
-                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 text-lg">
-                  Book My Repair Service
+                <Button 
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 text-lg disabled:opacity-50"
+                >
+                  {isSubmitting ? 'Sending...' : 'Book My Repair Service'}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </form>

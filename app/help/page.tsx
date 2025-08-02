@@ -404,8 +404,8 @@ export default function HelpPage() {
         <div className="container mx-auto max-w-6xl">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
-              <div className="flex items-center space-x-2 mb-4">
-                <img src="/images/logo_bg.png" alt="Fone Fixer Logo" className="w-8 h-8" />
+            <div className="flex items-center space-x-2 mb-4">
+                <img src="/fonefixer_logo.png" alt="Fone Fixer Logo" className="rounded-full w-10 h-10" />
                 <h3 className="text-2xl font-bold">Fone Fixer</h3>
               </div>
               <p className="text-gray-300 mb-4">

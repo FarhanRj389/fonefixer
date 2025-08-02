@@ -45,7 +45,7 @@ export default function ServicesPage() {
         "Water Damage Repair",
         "Software Troubleshooting",
       ],
-      priceRange: "$49 - $199",
+      priceRange: "From $49",
       timeRange: "30-60 minutes",
       brands: ["iPhone", "Samsung", "Google", "Huawei", "OnePlus", "Xiaomi"],
     },
@@ -62,7 +62,7 @@ export default function ServicesPage() {
         "RAM Upgrade",
         "macOS Installation",
       ],
-      priceRange: "$89 - $299",
+      priceRange: "From $89",
       timeRange: "45-90 minutes",
       brands: ["MacBook Air", "MacBook Pro", "iMac", "Mac Mini"],
     },
@@ -79,7 +79,7 @@ export default function ServicesPage() {
         "Performance Optimization",
         "Windows Installation",
       ],
-      priceRange: "$69 - $249",
+      priceRange: "From $69",
       timeRange: "45-90 minutes",
       brands: ["Dell", "HP", "Lenovo", "Asus", "Acer", "MSI"],
     },
@@ -431,8 +431,8 @@ export default function ServicesPage() {
         <div className="container mx-auto max-w-6xl">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
-              <div className="flex items-center space-x-2 mb-4">
-                <img src="/images/logo_bg.png" alt="Fone Fixer Logo" className="w-8 h-8" />
+            <div className="flex items-center space-x-2 mb-4">
+                <img src="/fonefixer_logo.png" alt="Fone Fixer Logo" className="rounded-full w-10 h-10" />
                 <h3 className="text-2xl font-bold">Fone Fixer</h3>
               </div>
               <p className="text-gray-300 mb-4">

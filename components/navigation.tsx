@@ -18,12 +18,12 @@ export default function Navigation() {
   ]
 
   return (
-    <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
+    <nav className="fixed top-0 w-full bg-white backdrop-blur-sm border-b border-gray-200 z-50">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <img src="/images/logo_bg.png" alt="Fone Fixer Logo" className="w-10 h-10" />
+          <Link href="/" className="flex items-center space-x-2 ">
+            <img src="/fonefixer_logo.png" alt="Fone Fixer Logo" className="rounded-full w-16 h-14" />
             <span className="text-xl font-bold text-gray-900">Fone Fixer</span>
           </Link>
 

@@ -141,19 +141,19 @@ export default function HomePage() {
 
   const testimonials = [
     {
-      name: "Sarah Johnson",
+      name: "Samuel Tu'itahi",
       rating: 5,
-      text: "Amazing service! They came to my office and fixed my iPhone screen in 30 minutes. Highly recommended!",
+      text: "I'm never going anywhere else! UK (his nickname) was super friendly and fixed my phone on the spot in under 10 minutes honestly, waiting for the glue to set took longer than the actual repair. He used genuine parts, kept me in the loop the whole time, and the price was really reasonable. You can tell he knows his stuff his experience as a Samsung technician definitely shows. I’ve been to a few repair places over the years, and this is the most confident I’ve felt leaving with my phone. Highly recommend supporting this awesome small and local business.",
     },
     {
-      name: "Mike Chen",
+      name: "Louie Edillor",
       rating: 5,
-      text: "Professional and affordable. My MacBook is working perfectly after their repair.",
+      text: "UK is very professional and he knows what he is doing. His rates are affordable as well, and gave us a good package. Fone fixer will be our go-to from now on.",
     },
     {
-      name: "Emma Wilson",
+      name: "Ruma Miah",
       rating: 5,
-      text: "Super convenient onsite service. No need to leave home or work!",
+      text: "I had a fantastic experience with FoneFixer. My phone screen was completely shattered and they repaired it quickly and professionally. The staff were friendly, honest, and clearly explained the issue and pricing upfront—no hidden fees. My phone looks brand new and works perfectly now. Fast turnaround, fair prices, and top-quality service. Would definitely come back and recommend to anyone needing phone repairs.",
     },
   ]
 
@@ -648,7 +648,7 @@ export default function HomePage() {
           <div className="grid md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center space-x-2 mb-4">
-                <img src="/images/logo_bg.png" alt="Fone Fixer Logo" className="w-8 h-8" />
+                <img src="/fonefixer_logo.png" alt="Fone Fixer Logo" className="rounded-full w-10 h-10" />
                 <h3 className="text-2xl font-bold">Fone Fixer</h3>
               </div>
               <p className="text-gray-300 mb-4">

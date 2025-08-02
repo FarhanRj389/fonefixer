@@ -24,6 +24,7 @@ import {
   CalendarIcon,
   ArrowRight,
   Zap,
+  Wrench,
 } from "lucide-react"
 import { format } from "date-fns"
 import { cn } from "@/lib/utils"
@@ -341,6 +342,38 @@ export default function HomePage() {
             <p className="text-xl text-gray-600">No hidden fees, no surprises - just honest, affordable pricing</p>
           </div>
 
+          <div className="flex justify-center">
+            <Card className="border-2 border-blue-400 hover:border-blue-600 transition-colors max-w-md">
+              <CardContent className="p-8">
+                <div className="text-center">
+                  <Wrench className="h-12 w-12 text-blue-600 mx-auto mb-4" />
+                  <h3 className="text-2xl font-bold mb-2">Repairs</h3>
+                  <div className="text-3xl font-bold text-blue-600 mb-4">Starting From Only $39 NZD</div>
+                  <ul className="text-left space-y-2 mb-6">
+                    <li className="flex items-center">
+                      <CheckCircle className="h-4 w-4 text-blue-600 mr-2" />
+                      Same-Day Service
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="h-4 w-4 text-blue-600 mr-2" />
+                      Certified Technicians
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="h-4 w-4 text-blue-600 mr-2" />
+                      No Fix, No Fee
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="h-4 w-4 text-blue-600 mr-2" />
+                      Quality Parts & Warranty
+                    </li>
+                  </ul>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Commented out iPhone Repairs, Mac Repairs, Windows Repairs sections */}
+          {/* 
           <div className="grid md:grid-cols-3 gap-8">
             <Card className="border-2 border-blue-200 hover:border-blue-400 transition-colors">
               <CardContent className="p-8">
@@ -426,6 +459,7 @@ export default function HomePage() {
               </CardContent>
             </Card>
           </div>
+          */}
         </div>
       </section>
 

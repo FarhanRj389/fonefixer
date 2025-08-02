@@ -347,7 +347,7 @@ export default function HomePage() {
                 <div className="text-center">
                   <Smartphone className="h-12 w-12 text-blue-600 mx-auto mb-4" />
                   <h3 className="text-2xl font-bold mb-2">iPhone Repairs</h3>
-                  <div className="text-3xl font-bold text-blue-600 mb-4">$49 - $199</div>
+                  <div className="text-3xl font-bold text-blue-600 mb-4">Starting From $39NZD</div>
                   <ul className="text-left space-y-2 mb-6">
                     <li className="flex items-center">
                       <CheckCircle className="h-4 w-4 text-blue-600 mr-2" />
@@ -375,7 +375,7 @@ export default function HomePage() {
                 <div className="text-center">
                   <Laptop className="h-12 w-12 text-blue-600 mx-auto mb-4" />
                   <h3 className="text-2xl font-bold mb-2">Mac Repairs</h3>
-                  <div className="text-3xl font-bold text-blue-600 mb-4">$89 - $299</div>
+                  <div className="text-3xl font-bold text-blue-600 mb-4">Starting From $39NZD</div>
                   <ul className="text-left space-y-2 mb-6">
                     <li className="flex items-center">
                       <CheckCircle className="h-4 w-4 text-blue-600 mr-2" />
@@ -403,7 +403,7 @@ export default function HomePage() {
                 <div className="text-center">
                   <Monitor className="h-12 w-12 text-blue-600 mx-auto mb-4" />
                   <h3 className="text-2xl font-bold mb-2">Windows Repairs</h3>
-                  <div className="text-3xl font-bold text-blue-600 mb-4">$69 - $249</div>
+                  <div className="text-3xl font-bold text-blue-600 mb-4">Starting From $39NZD</div>
                   <ul className="text-left space-y-2 mb-6">
                     <li className="flex items-center">
                       <CheckCircle className="h-4 w-4 text-blue-600 mr-2" />

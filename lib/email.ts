@@ -17,44 +17,46 @@ export const emailConfig = {
   port: 587,
   secure: false,
   auth: {
-    user: 'farhanunidata@gmail.com',
-    // Use App Password from Gmail (not regular password)
-    pass: process.env.GMAIL_APP_PASSWORD || 'your_app_password_here'
+    user: 'farhanrjcw389@gmail.com',
+    pass: process.env.GMAIL_APP_PASSWORD || 'oymt efaz haej zhtu'
   }
 };
 
+import nodemailer from 'nodemailer';
+
 export const sendEmail = async (data: EmailData) => {
   try {
-    // For now, we'll log the email data
-    // In production, you would use nodemailer or similar
-    console.log('Email would be sent with data:', data);
-    
-    // Email template
-    const emailContent = `
-      New Service Booking Request
-      
-      Customer Details:
-      Name: ${data.firstName} ${data.lastName}
-      Phone: ${data.phone}
-      Email: ${data.email}
-      
-      Device Information:
-      Brand: ${data.deviceBrand}
-      Model: ${data.deviceModel}
-      
-      Service Details:
-      Preferred Date: ${data.serviceDate}
-      Service Type: ${data.serviceType}
-      Address: ${data.address}
-      
-      This is a booking request from the Fone Fixer website.
-    `;
-    
-    console.log('Email content:', emailContent);
-    
+    const transporter = nodemailer.createTransport(emailConfig);
+
+    const mailOptions = {
+      from: '"Fone Fixer" <admin@fonefixer.co.nz>',
+      to: 'fonefixernz@gmail.com', // Change to desired recipient
+      subject: 'New Service Booking Request',
+      text: `
+        New Service Booking Request
+
+        Customer Details:
+        Name: ${data.firstName} ${data.lastName}
+        Phone: ${data.phone}
+        Email: ${data.email}
+
+        Device Information:
+        Brand: ${data.deviceBrand}
+        Model: ${data.deviceModel}
+
+        Service Details:
+        Preferred Date: ${data.serviceDate}
+        Service Type: ${data.serviceType}
+        Address: ${data.address}
+
+        This is a booking request from the Fone Fixer website.
+      `
+    };
+
+    await transporter.sendMail(mailOptions);
     return { success: true, message: 'Email sent successfully' };
   } catch (error) {
     console.error('Email sending failed:', error);
     return { success: false, message: 'Failed to send email' };
   }
-}; 
+};

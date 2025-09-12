@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://fonefixer.co.nz'),
   icons: '/images/logo_bg.png',
   title: 'Fone Fixer | Mobile, Laptop & Device Repair NZ',
   description: 'Fone Fixer offers fast, reliable mobile, laptop, and device repair services in New Zealand. Book your repair online and get expert service.',

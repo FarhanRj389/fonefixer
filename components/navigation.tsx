@@ -42,10 +42,12 @@ export default function Navigation() {
 
           {/* Call Button */}
           <div className="hidden md:flex">
-            <Button className="bg-blue-600 hover:bg-blue-700">
-              <Phone className="h-4 w-4 mr-2" />
-              027 415 2897
-            </Button>
+            <a href="tel:0274152897" className="no-underline">
+              <Button className="bg-blue-600 hover:bg-blue-700">
+                <Phone className="h-4 w-4 mr-2" />
+                027 415 2897
+              </Button>
+            </a>
           </div>
 
           {/* Mobile Menu */}

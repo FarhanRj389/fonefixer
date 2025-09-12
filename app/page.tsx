@@ -689,10 +689,12 @@ export default function HomePage() {
                 Auckland's premier onsite phone repair service. Fast, reliable, and affordable.
               </p>
               <div className="flex space-x-4">
-                <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
-                  <Phone className="h-4 w-4 mr-2" />
-                  027 415 2897
-                </Button>
+                <a href="tel:0274152897">
+                  <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
+                    <Phone className="h-4 w-4 mr-2" />
+                    027 415 2897
+                  </Button>
+                </a>
               </div>
             </div>
 
@@ -730,7 +732,7 @@ export default function HomePage() {
           </div>
 
           <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
-          <p>Fone Fixer All Rights Reserved © 2024 | Powered by DigitronCX®</p>
+          <p>Fone Fixer All Rights Reserved © 2024 | Powered by <a href="www.digitroncx.com" target="_blank">DigitronCX</a></p>
           </div>
         </div>
       </footer>

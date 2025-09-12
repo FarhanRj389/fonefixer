@@ -37,10 +37,48 @@ export default function HelpPage() {
     }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<{success?: boolean; message: string} | null>(null)
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission
-    console.log("Form submitted:", formData)
+    setIsSubmitting(true)
+    setSubmitStatus(null)
+    
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+      
+      const data = await response.json()
+      
+      if (response.ok) {
+        setSubmitStatus({ success: true, message: data.message || 'Message sent successfully!' })
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+          urgency: "",
+        })
+      } else {
+        throw new Error(data.error || 'Failed to send message')
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      setSubmitStatus({ 
+        success: false, 
+        message: error instanceof Error ? error.message : 'Failed to send message. Please try again.' 
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const contactMethods = [
@@ -64,7 +102,7 @@ export default function HelpPage() {
       icon: Mail,
       title: "Email",
       description: "Send us detailed questions",
-      value: "info@fonefixer.nz",
+      value: "fonefixernz@gmail.com",
       action: "Send Email",
       available: "Response within 2 hours",
     },
@@ -155,16 +193,22 @@ export default function HelpPage() {
 
             {/* Emergency Call Button */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button
-                size="lg"
-                className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 text-lg animate-pulse"
-                asChild
+              <a 
+                href="https://wa.me/640274152897" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="max-w-7xl"
               >
-                <a href="tel:0274152897">
-                  <Phone className="mr-2 h-6 w-6" />
-                  FREE Emergency Help Call
-                </a>
-              </Button>
+                <Button
+                  size="lg"
+                  className="max-w-7xl bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-6 rounded-md transition duration-300 flex items-center justify-center"
+                >
+                  <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 2.126.549 4.125 1.513 5.865L.056 24l6.32-1.652c1.746.943 3.72 1.444 5.837 1.444 6.627 0 12-5.373 12-12S18.627 0 12 0zm6.5 17.292c-.32.9-1.78 1.647-2.912 1.85-.69.122-1.6.22-4.63-1.12-3.7-1.63-6.08-5.37-6.27-5.62-.19-.25-1.59-2.03-1.59-3.88 0-1.82.98-2.71 1.34-3.09.32-.34.7-.53 1.11-.53.14 0 .27.01.4 0 .39-.01.75.14 1.08.64.34.51 1.18 1.73 1.28 1.86.1.12.2.29.06.46-.13.17-.2.28-.4.45-.2.17-.39.37-.56.5-.17.13-.36.29-.15.56.21.27.94 1.2 2.02 1.88 1.37.88 2.49 1.15 2.91 1.28.42.13.67.11.91-.1.25-.2 1.06-1.02 1.35-1.37.28-.35.57-.4.88-.3.3.1 1.92.91 2.25 1.07.33.17.55.25.63.4.08.15.07.86-.25 1.69z"/>
+                  </svg>
+                  Chat on WhatsApp
+                </Button>
+              </a>
               <p className="text-sm text-gray-600">Available 7 days a week</p>
             </div>
           </div>
@@ -192,8 +236,26 @@ export default function HelpPage() {
                   <p className="text-gray-600 mb-3">{method.description}</p>
                   <div className="text-lg font-semibold text-blue-600 mb-3">{method.value}</div>
                   <p className="text-sm text-gray-500 mb-4">{method.available}</p>
-                  <Button className="w-full" variant={index === 0 ? "default" : "outline"} asChild={index === 0}>
-                    {index === 0 ? <a href="tel:0274152897">{method.action}</a> : method.action}
+                  <Button 
+                    className="w-full" 
+                    variant={index === 0 ? "default" : "outline"} 
+                    asChild
+                  >
+                    {index === 0 ? (
+                      <a href="tel:0274152897">{method.action}</a>
+                    ) : index === 1 ? (
+                      <a href="https://wa.me/640274152897" target="_blank" rel="noopener noreferrer">
+                        {method.action}
+                      </a>
+                    ) : index === 2 ? (
+                      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=fonefixernz@gmail.com" target="_blank" rel="noopener noreferrer">
+                        {method.action}
+                      </a>
+                    ) : (
+                      <a href="/#cta">
+                        {method.action}
+                      </a>
+                    )}
                   </Button>
                 </CardContent>
               </Card>
@@ -217,6 +279,11 @@ export default function HelpPage() {
               <CardTitle className="text-2xl text-center">Contact Form</CardTitle>
             </CardHeader>
             <CardContent>
+              {submitStatus && (
+                <div className={`p-4 mb-6 rounded-md ${submitStatus.success ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+                  {submitStatus.message}
+                </div>
+              )}
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>

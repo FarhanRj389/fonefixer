@@ -61,6 +61,7 @@ export default function HomePage() {
       email: formDataObj.get('email') as string,
       deviceBrand: formDataObj.get('deviceBrand') as string,
       deviceModel: formDataObj.get('deviceModel') as string,
+      issueDescription: formDataObj.get('issueDescription') as string,
       serviceDate: date ? date.toISOString().split('T')[0] : '',
       serviceType: formData.serviceType,
       address: formDataObj.get('address') as string,
@@ -372,94 +373,7 @@ export default function HomePage() {
             </Card>
           </div>
 
-          {/* Commented out iPhone Repairs, Mac Repairs, Windows Repairs sections */}
-          {/* 
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="border-2 border-blue-200 hover:border-blue-400 transition-colors">
-              <CardContent className="p-8">
-                <div className="text-center">
-                  <Smartphone className="h-12 w-12 text-blue-600 mx-auto mb-4" />
-                  <h3 className="text-2xl font-bold mb-2">iPhone Repairs</h3>
-                  <div className="text-3xl font-bold text-blue-600 mb-4">Starting From $39NZD</div>
-                  <ul className="text-left space-y-2 mb-6">
-                    <li className="flex items-center">
-                      <CheckCircle className="h-4 w-4 text-blue-600 mr-2" />
-                      Screen Replacement
-                    </li>
-                    <li className="flex items-center">
-                      <CheckCircle className="h-4 w-4 text-blue-600 mr-2" />
-                      Battery Replacement
-                    </li>
-                    <li className="flex items-center">
-                      <CheckCircle className="h-4 w-4 text-blue-600 mr-2" />
-                      Charging Port Fix
-                    </li>
-                    <li className="flex items-center">
-                      <CheckCircle className="h-4 w-4 text-blue-600 mr-2" />
-                      Camera Repair
-                    </li>
-                  </ul>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="border-2 border-blue-400 hover:border-blue-600 transition-colors">
-              <CardContent className="p-8">
-                <div className="text-center">
-                  <Laptop className="h-12 w-12 text-blue-600 mx-auto mb-4" />
-                  <h3 className="text-2xl font-bold mb-2">Mac Repairs</h3>
-                  <div className="text-3xl font-bold text-blue-600 mb-4">Starting From $39NZD</div>
-                  <ul className="text-left space-y-2 mb-6">
-                    <li className="flex items-center">
-                      <CheckCircle className="h-4 w-4 text-blue-600 mr-2" />
-                      Screen Replacement
-                    </li>
-                    <li className="flex items-center">
-                      <CheckCircle className="h-4 w-4 text-blue-600 mr-2" />
-                      Keyboard Repair
-                    </li>
-                    <li className="flex items-center">
-                      <CheckCircle className="h-4 w-4 text-blue-600 mr-2" />
-                      Logic Board Fix
-                    </li>
-                    <li className="flex items-center">
-                      <CheckCircle className="h-4 w-4 text-blue-600 mr-2" />
-                      Battery Service
-                    </li>
-                  </ul>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="border-2 border-blue-200 hover:border-blue-400 transition-colors">
-              <CardContent className="p-8">
-                <div className="text-center">
-                  <Monitor className="h-12 w-12 text-blue-600 mx-auto mb-4" />
-                  <h3 className="text-2xl font-bold mb-2">Windows Repairs</h3>
-                  <div className="text-3xl font-bold text-blue-600 mb-4">Starting From $39NZD</div>
-                  <ul className="text-left space-y-2 mb-6">
-                    <li className="flex items-center">
-                      <CheckCircle className="h-4 w-4 text-blue-600 mr-2" />
-                      Screen Replacement
-                    </li>
-                    <li className="flex items-center">
-                      <CheckCircle className="h-4 w-4 text-blue-600 mr-2" />
-                      Hardware Upgrade
-                    </li>
-                    <li className="flex items-center">
-                      <CheckCircle className="h-4 w-4 text-blue-600 mr-2" />
-                      Software Issues
-                    </li>
-                    <li className="flex items-center">
-                      <CheckCircle className="h-4 w-4 text-blue-600 mr-2" />
-                      Virus Removal
-                    </li>
-                  </ul>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-          */}
+      
         </div>
       </section>
 
@@ -551,6 +465,10 @@ export default function HomePage() {
                   <div>
                     <Label htmlFor="deviceModel">Device Model</Label>
                     <Input id="deviceModel" name="deviceModel" placeholder="e.g., iPhone 14 Pro" required />
+                  </div>
+                  <div>
+                    <Label htmlFor="issueDescription">Describe the issue?</Label>
+                    <Textarea id="issueDescription" name="issueDescription" placeholder="Provide a brief description of the issue" required />
                   </div>
                 </div>
 

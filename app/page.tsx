@@ -466,10 +466,10 @@ export default function HomePage() {
                     <Label htmlFor="deviceModel">Device Model</Label>
                     <Input id="deviceModel" name="deviceModel" placeholder="e.g., iPhone 14 Pro" required />
                   </div>
-                  <div>
+                </div>
+                <div>
                     <Label htmlFor="issueDescription">Describe the issue?</Label>
                     <Textarea id="issueDescription" name="issueDescription" placeholder="Provide a brief description of the issue" required />
-                  </div>
                 </div>
 
                 <div>

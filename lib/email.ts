@@ -34,24 +34,24 @@ export const sendEmail = async (data: EmailData) => {
       to: 'farhanrjcw389@gmail.com', // Change to desired recipient
       subject: 'New Service Booking Request',
       text: `
-        New Service Booking Request
+        <h1 className="text-2xl font-bold text-blue-800">New Service Booking Request</h1>
 
-        Customer Details:
+        <h2 className="text-lg font-semibold">Customer Details:</h2>
         Name: ${data.firstName} ${data.lastName}
         Phone: ${data.phone}
         Email: ${data.email}
 
-        Device Information:
+        <h2 className="text-lg font-semibold">Device Information:</h2>
         Brand: ${data.deviceBrand}
         Model: ${data.deviceModel}
         Issue Description: ${data.issueDescription}
 
-        Service Details:
+        <h2 className="text-lg font-semibold">Service Details:</h2>
         Preferred Date: ${data.serviceDate}
         Service Type: ${data.serviceType}
         Address: ${data.address}
 
-        This is a booking request from the Fone Fixer website.
+        <p>This is a booking request from the Fone Fixer website.</p>
       `
     };
 

@@ -6,6 +6,7 @@ export interface EmailData {
   email: string;
   deviceBrand: string;
   deviceModel: string;
+  issueDescription: string;
   serviceDate: string;
   serviceType: string;
   address: string;
@@ -48,6 +49,7 @@ export const sendEmail = async (data: EmailData) => {
         Preferred Date: ${data.serviceDate}
         Service Type: ${data.serviceType}
         Address: ${data.address}
+        Issue Description: ${data.issueDescription}
 
         This is a booking request from the Fone Fixer website.
       `

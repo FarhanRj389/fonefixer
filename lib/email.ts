@@ -44,12 +44,12 @@ export const sendEmail = async (data: EmailData) => {
         Device Information:
         Brand: ${data.deviceBrand}
         Model: ${data.deviceModel}
+        Issue Description: ${data.issueDescription}
 
         Service Details:
         Preferred Date: ${data.serviceDate}
         Service Type: ${data.serviceType}
         Address: ${data.address}
-        Issue Description: ${data.issueDescription}
 
         This is a booking request from the Fone Fixer website.
       `

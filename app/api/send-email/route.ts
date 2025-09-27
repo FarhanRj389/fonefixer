@@ -6,7 +6,7 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     
     // Validate required fields
-    const requiredFields = ['firstName', 'lastName', 'phone', 'email', 'deviceBrand', 'deviceModel', 'serviceDate', 'serviceType', 'address'];
+    const requiredFields = ['firstName', 'lastName', 'phone', 'email', 'deviceBrand', 'deviceModel', 'issueDescription', 'serviceDate', 'serviceType', 'address'];
     const missingFields = requiredFields.filter(field => !body[field]);
     
     if (missingFields.length > 0) {
@@ -23,6 +23,7 @@ export async function POST(request: NextRequest) {
       email: body.email,
       deviceBrand: body.deviceBrand,
       deviceModel: body.deviceModel,
+      issueDescription: body.issueDescription,
       serviceDate: body.serviceDate,
       serviceType: body.serviceType,
       address: body.address,

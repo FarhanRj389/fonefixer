@@ -31,7 +31,7 @@ export const sendEmail = async (data: EmailData) => {
 
     const mailOptions = {
       from: '"Fone Fixer" <admin@fonefixer.co.nz>',
-      to: 'farhanrjcw389@gmail.com', // Change to desired recipient
+      to: 'fonefixernz@gmail.com', // Change to desired recipient
       subject: 'New Service Booking Request',
       text: `
         New Service Booking Request
